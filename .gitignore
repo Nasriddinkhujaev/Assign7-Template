@@ -1,0 +1,21 @@
+*.class
+node_modules/
+.env
+.DS_Store
+# Ignore build files
+/build/
+/dist/
+# Ignore IDE files
+.idea/
+.vscode/
+# Ignore log files
+*.log
+# Ignore temporary files
+*.tmp
+# Ignore compiled files
+*.o
+*.so
+*.dll
+# Ignore generated files
+/generated/
+
