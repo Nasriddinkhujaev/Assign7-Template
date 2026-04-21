@@ -28,8 +28,8 @@ public class SummaryGenerator {
     // * It is very similar to frequencies in the class CharacterCount in the
     // package hashmap_use posted for Lec#21.
 
-    Map<String, Integer> countsByCountryMap;
-    // Map<String, Integer> countsByCountryMap;
+    Map<String, Integer> countsByCountryMap; // since hashMap and TreeMap both implement the Map interface, i can declare the data field as Map type
+
 
     // add your code: define a no-argument constructor,
     // where you create a new HashMap or TreeMap for the data summary.
@@ -43,8 +43,8 @@ public class SummaryGenerator {
         // You must add the code for creating each type of Map.
         // Then you comment the code for one type, use the other type at a time.
 
-        countsByCountryMap = new HashMap<>();
-        // countsByCountryMap = new TreeMap<>();
+        // countsByCountryMap = new HashMap<>();
+        countsByCountryMap = new TreeMap<>();
 
         // Hints:
         // HashMap
@@ -72,18 +72,18 @@ public class SummaryGenerator {
                 // store values as String in a String array.
                 String[] fields = line.split(COMMA_DELIMITER);
                 // convert the array to an ArrayList
-                purchase = Arrays.asList(fields);
+                purchase = Arrays.asList(fields); // converting because array doesn't have get() method 
                 // System.out.println(purchase);
 
                 // ----Assign 7 Continues ------------//
 
                 // Add your code:
-                String country = purchase.get(7);
-                if (countsByCountryMap.containsKey(country)) {
-                    int count = countsByCountryMap.get(country);
-                    countsByCountryMap.put(country, count + 1);
+                String country = purchase.get(7); // get the country from the ArrayList: purchase
+                if (countsByCountryMap.containsKey(country)) { // if the country is already in the data summary
+                    int count = countsByCountryMap.get(country); // get the country's count 
+                    countsByCountryMap.put(country, count + 1); // increase the count by 1
                 } else {
-                    countsByCountryMap.put(country, 1);
+                    countsByCountryMap.put(country, 1); //otherwise, add the new summary entry: country, 1 into the data summary map: countsByCountry.
                 }
                 // get the country from the ArrayList: purchase
                 // if the country is already in the data summary
@@ -124,11 +124,11 @@ public class SummaryGenerator {
         System.out.println("---------------------------------");
         // print the heading
         // print a number of dashes
-        for (String country : countsByCountryMap.keySet()) {
-            int count = countsByCountryMap.get(country);
-            System.out.printf("%-30s", country);
-            printNChars('*', count);
-            System.out.println();
+        for (String country : countsByCountryMap.keySet()) { // for each country inside the data summary map, (keySet() method returns a set of keys in the map) 
+            int count = countsByCountryMap.get(country); // get the count for the country using get() method 
+            System.out.printf("%-30s", country); // print the country, -30s means left justified and 30 characters wide
+            printNChars('*', count); // call printNChars to print the count as a sequence of stars
+            System.out.println(); // move to the next line after printing the country and its count as stars
         }
         // use a foreach loop
         // do the following in each loop run
@@ -150,8 +150,8 @@ public class SummaryGenerator {
     private void printNChars(char ch, int count) {
 
         // add your own code
-        for (int i = 0; i < count; i++) {
-            System.out.print(ch);
+        for (int i = 0; i < count; i++) { // loop character ch count number of times 
+            System.out.print(ch); // print the character ch without moving to the next line
         }
         // Hint: use a counter-controlled loop
 
